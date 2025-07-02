@@ -1,0 +1,166 @@
+import React from "react";
+import { Badge } from "./ui/badge";
+import { Card, CardContent } from "./ui/card";
+
+// Define card data for mapping
+const topRowCards = [
+  {
+    id: 1,
+    title: "Real-Time Needs Analysis",
+    description: [
+      "Identify bottlenecks and inefficiencies",
+      "with live system audits tailored to your",
+      "workflows.",
+    ],
+    image: "/figure--framer-9dgwf---mask-group--2.png",
+  },
+  {
+    id: 2,
+    title: "Custom Workflow Design",
+    description: [
+      "Build personalized automation blueprints",
+      "that solve your specific operational",
+      "challenges.",
+    ],
+    image: "/figure--framer-9dgwf---mask-group--1.png",
+  },
+  {
+    id: 3,
+    title: "AI-Powered Optimization",
+    description: [
+      "Apply AI insights to design smarter,",
+      "faster, and more profitable business",
+      "processes.",
+    ],
+    image: "/figure--framer-9dgwf---mask-group-.png",
+  },
+];
+
+const bottomRowCards = [
+  {
+    id: 1,
+    title: "Seamless System Integration",
+    description: [
+      "Connect your existing platforms, tools, and data into one",
+      "streamlined automation system.",
+    ],
+    image: "/figure--framer-9dgwf---mask-group--4.png",
+  },
+  {
+    id: 2,
+    title: "Continuous Improvement Engine",
+    description: [
+      "Monitor, optimize, and evolve your automations as your business",
+      "grows and changes.",
+    ],
+    image: "/figure--framer-9dgwf---mask-group--3.png",
+  },
+];
+
+export const Bespoke = (): JSX.Element => {
+  return (
+    <section className="bg-black flex flex-row justify-center w-full">
+      <div className="bg-black w-full max-w-[2032.8px] min-h-[1416.32px] py-[100px]">
+        <div className="flex flex-col w-full max-w-[1200px] items-start gap-16 mx-auto">
+          <header className="w-full flex flex-col items-center">
+            <Badge className="bg-[#0d0d12] text-transparent hover:bg-[#0d0d12] rounded-full h-[38px] border-[0.8px] border-solid border-[#1a1d31] mb-[62px]">
+              <span className="[font-family:'Inter',Helvetica] font-normal text-[15px] leading-[22.4px] px-3 py-2">
+                Experience
+              </span>
+            </Badge>
+
+            <h1 className="text-center">
+              <span className="block [font-family:'Inter',Helvetica] font-medium text-[#ffffffde] text-[53.3px] tracking-[-2.08px] leading-[62.4px]">
+                Bespoke Automation
+              </span>
+              <span className="block [font-family:'Inter',Helvetica] font-medium text-[#ffffffde] text-[53.3px] tracking-[-2.08px] leading-[62.4px] mt-[1px]">
+                Infrastructure
+              </span>
+            </h1>
+
+            <p className="text-center mt-[30px]">
+              <span className="block [font-family:'Inter',Helvetica] font-normal text-[#7b7c8c] text-[16.9px] leading-[25.6px]">
+                Smart, scalable automations tailored to your business —
+              </span>
+              <span className="block [font-family:'Inter',Helvetica] font-normal text-[#7b7c8c] text-[16.9px] leading-[25.6px]">
+                not off-the-shelf solutions.
+              </span>
+            </p>
+          </header>
+
+          <div className="w-full space-y-8">
+            {/* Top row - 3 cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+              {topRowCards.map((card) => (
+                <Card
+                  key={card.id}
+                  className="bg-black rounded-[20px] border-[0.8px] border-solid border-[#1a1d31] overflow-hidden h-[382px]"
+                >
+                  <CardContent className="p-0">
+                    <div className="flex flex-col h-full">
+                      <img
+                        className="w-full h-[234.93px] object-cover"
+                        alt={`${card.title} illustration`}
+                        src={card.image}
+                      />
+                      <div className="p-6 flex flex-col gap-2">
+                        <h3 className="[font-family:'Inter',Helvetica] font-medium text-[#ffffffde] text-[21.4px] leading-7">
+                          {card.title}
+                        </h3>
+                        <div className="flex flex-col">
+                          {card.description.map((line, index) => (
+                            <p
+                              key={index}
+                              className="[font-family:'Inter',Helvetica] font-normal text-[#7b7c8c] text-[16.9px] leading-[25.6px]"
+                            >
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Bottom row - 2 cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+              {bottomRowCards.map((card) => (
+                <Card
+                  key={card.id}
+                  className="bg-black rounded-[20px] border-[0.8px] border-solid border-[#1a1d31] overflow-hidden h-[484px]"
+                >
+                  <CardContent className="p-0">
+                    <div className="flex flex-col h-full">
+                      <img
+                        className="w-full h-[363px] object-cover"
+                        alt={`${card.title} illustration`}
+                        src={card.image}
+                      />
+                      <div className="p-6 flex flex-col gap-2">
+                        <h3 className="[font-family:'Inter',Helvetica] font-medium text-[#ffffffde] text-[21.4px] leading-7">
+                          {card.title}
+                        </h3>
+                        <div className="flex flex-col">
+                          {card.description.map((line, index) => (
+                            <p
+                              key={index}
+                              className="[font-family:'Inter',Helvetica] font-normal text-[#7b7c8c] text-[16.9px] leading-[25.6px]"
+                            >
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

@@ -1,0 +1,127 @@
+import React from "react";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
+import "./Contactcss";
+
+// Data for the scattered text elements
+const textGroups = [
+  {
+    position: "left-14 top-0",
+    items: [
+      { text: "questions", position: "top-0 left-0" },
+      { text: "or", position: "top-0 left-[82px]" },
+      { text: "need", position: "top-0 left-[103px]" },
+      { text: "assistance?", position: "top-0 left-[148px]" },
+      { text: "Our", position: "top-0 left-[247px]" },
+      { text: "team", position: "top-0 left-[280px]" },
+      { text: "us", position: "top-[26px] left-[21px]" },
+      { text: "for", position: "top-[26px] left-11" },
+      { text: "demos,", position: "top-[26px] left-[69px]" },
+      { text: "support,", position: "top-[26px] left-[133px]" },
+      { text: "or", position: "top-[26px] left-[202px]" },
+      { text: "any", position: "top-[26px] left-[223px]" },
+      { text: "inquiries", position: "top-[26px] left-[257px]" },
+    ],
+  },
+  {
+    position: "left-96 top-0",
+    items: [
+      { text: "is", position: "top-0 left-0" },
+      { text: "here", position: "top-0 left-[17px]" },
+      { text: "to", position: "top-0 left-[57px]" },
+      { text: "you", position: "top-[26px] left-px" },
+      { text: "may", position: "top-[26px] left-[35px]" },
+    ],
+  },
+  {
+    position: "left-[460px] top-0",
+    items: [
+      { text: "help.", position: "top-0 left-px" },
+      { text: "have.", position: "top-[26px] left-0" },
+    ],
+  },
+];
+
+// Main headings
+const headings = [
+  { text: "Get in touch, Questions, or", position: "top-0 left-0" },
+  { text: "Account Assistance", position: "top-[62px] left-[74px]" },
+];
+
+export const Contacthero = (): JSX.Element => {
+  return (
+    <div className="bg-black flex flex-row justify-center w-full">
+      <div className="bg-style-1 overflow-hidden w-full max-w-[1905px] h-[1119.41px] relative">
+        <div className="relative w-full max-w-[2475px] h-[2382px] top-3.5 left-[-301px]">
+          <img
+            className="absolute w-[1200px] h-[521px] top-0 left-[667px]"
+            alt="Div framer"
+            src="/div--framer-10kct7y---mask-group-.png"
+          />
+
+          <Card className="absolute w-[1200px] h-[254px] top-[153px] left-[654px] border-none bg-transparent">
+            <CardContent className="p-0">
+              {/* Scattered text elements */}
+              <div className="absolute w-[580px] h-[51px] top-[203px] left-[310px]">
+                <div className="absolute h-[26px] top-0 left-[11px] font-style-3 text-style-6 text-[length:var(--style-3-font-size)] tracking-[var(--style-3-letter-spacing)] leading-[var(--style-3-line-height)] whitespace-nowrap">
+                  Have
+                </div>
+
+                <div className="absolute h-[26px] top-0 left-[504px] font-style-3 text-style-6 text-[length:var(--style-3-font-size)] tracking-[var(--style-3-letter-spacing)] leading-[var(--style-3-line-height)] whitespace-nowrap">
+                  Contact
+                </div>
+
+                {textGroups.map((group, groupIndex) => (
+                  <div
+                    key={groupIndex}
+                    className={`absolute w-auto h-[52px] ${group.position}`}
+                  >
+                    {group.items.map((item, itemIndex) => (
+                      <div
+                        key={itemIndex}
+                        className={`absolute h-[26px] ${item.position} font-style-3 text-style-6 text-[length:var(--style-3-font-size)] tracking-[var(--style-3-letter-spacing)] leading-[var(--style-3-line-height)] whitespace-nowrap`}
+                      >
+                        {item.text}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              {/* Main headings */}
+              <div className="absolute w-[650px] h-[125px] top-[58px] left-[275px]">
+                <div className="relative w-[620px] h-[125px] left-[11px]">
+                  {headings.map((heading, index) => (
+                    <div
+                      key={index}
+                      className={`absolute h-[63px] ${heading.position} font-style-14 text-style-4 text-[length:var(--style-14-font-size)] tracking-[var(--style-14-letter-spacing)] leading-[var(--style-14-line-height)] whitespace-nowrap`}
+                    >
+                      {heading.text}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Contact button */}
+              <div className="absolute w-[81px] h-[38px] top-0 left-[560px]">
+                <Button
+                  variant="outline"
+                  className="h-[38px] w-full rounded-full bg-style-11 border border-solid border-[#1a1d31]"
+                >
+                  <span className="font-style-13 text-[length:var(--style-13-font-size)] tracking-[var(--style-13-letter-spacing)] leading-[var(--style-13-line-height)]">
+                    Contact
+                  </span>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div
+            className="absolute w-[2475px] h-[2242px] top-[140px] left-0 bg-cover bg-center"
+            style={{ backgroundImage: "url(/image.png)" }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -1,0 +1,45 @@
+# robots.txt for https://syntora.io/
+# Last updated: 2023-05-25
+
+# Google Search Bot - Allow everything except specific paths
+User-agent: Googlebot
+Allow: /
+# Disallow unfinished content
+Disallow: /assets/New folder/
+# Disallow URLs with parameters to prevent duplicate content
+Disallow: /*?*
+
+# Google specialized crawlers
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# Google Ads Bot
+User-agent: AdsBot-Google
+Allow: /
+
+# Bing search engine
+User-agent: Bingbot
+Allow: /
+Disallow: /assets/New folder/
+Disallow: /*?*
+
+# All other bots
+User-agent: *
+Allow: /
+# Protect unfinished content
+Disallow: /assets/New folder/
+# Block system/template files
+Disallow: /*.json$
+# DO NOT block JS and CSS files as they're needed for rendering
+# Disallow: /*.js$
+# Disallow: /*.css$
+Disallow: /*?*
+
+# XML Sitemap
+Sitemap: https://syntora.io/sitemap.xml 

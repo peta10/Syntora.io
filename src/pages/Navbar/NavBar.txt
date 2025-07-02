@@ -1,0 +1,72 @@
+import React from "react";
+import { Button } from "./ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "./ui/navigation-menu";
+import { navbarStyles } from "./navbarcss";
+
+export const Navbar = (): JSX.Element => {
+  // Navigation menu items data
+  const navItems = [
+    { label: "About", href: "#" },
+    { label: "Features", href: "#" },
+    { label: "n8n Automation", href: "/services/n8n-managed-services" },
+    { label: "Pricing", href: "#" },
+    { label: "Contact", href: "#" },
+  ];
+
+  return (
+    <header className={navbarStyles.header}>
+      <div className={navbarStyles.container}>
+        <div className={navbarStyles.headerContent}>
+          {/* Logo */}
+          <div className={navbarStyles.logo} />
+
+          {/* Navigation Menu */}
+          <NavigationMenu className={navbarStyles.navigationMenu}>
+            <NavigationMenuList className={navbarStyles.navigationMenuList}>
+              {navItems.map((item, index) => (
+                <NavigationMenuItem
+                  key={index}
+                  className={navbarStyles.navigationMenuItem}
+                >
+                  <NavigationMenuLink
+                    href={item.href}
+                    className={navbarStyles.navigationMenuLink}
+                  >
+                    {item.label}
+                  </NavigationMenuLink>
+                  <div className={navbarStyles.navigationMenuItemUnderline} />
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          {/* Call to Action Button */}
+          <Button
+            className={navbarStyles.ctaButton}
+            style={{
+              background:
+                "radial-gradient(50% 50% at 50% 50%, rgba(245,131,39,1) 0%, rgba(207,207,207,0.2) 100%)",
+            }}
+          >
+            <div
+              className={navbarStyles.ctaButtonInner}
+              style={{
+                background:
+                  "radial-gradient(50% 50% at 50% 50%, rgba(107,51,5,1) 0%, rgba(0,0,0,1) 57%, rgba(0,0,0,1) 100%)",
+              }}
+            >
+              <span className={navbarStyles.ctaButtonText}>
+                Book A Call
+              </span>
+            </div>
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+};

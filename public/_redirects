@@ -1,0 +1,20 @@
+# Specific route redirects
+/time-audit                               /index.html                200
+/contact                                  /index.html                200
+/book-a-call                              /index.html                200 
+/pricing                                  /index.html                200
+/features                                 /index.html                200
+/about                                    /index.html                200
+/chicago-naperville-automation-services   /index.html                200
+/privacy-policy                           /index.html                200
+/blog                                     /index.html                200
+/blog/n8n-vs-zapier-make                  /index.html                200
+/blog/stop-manual-data-entry              /index.html                200
+/blog/diy-vs-managed-automation           /index.html                200
+/blog/chicago-automation-opportunities    /index.html                200
+
+# Nested routes with wildcard
+/blog/*                                   /index.html                200
+
+# Catch-all rule for any other routes
+/*                                        /index.html                200 

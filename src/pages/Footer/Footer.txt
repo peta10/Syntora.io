@@ -1,0 +1,203 @@
+import { ExternalLinkIcon } from "lucide-react";
+import React from "react";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
+import { footerStyles } from "./FooterCSS";
+
+// Footer navigation data
+const footerLinks = {
+  navigation: [
+    { name: "Home", url: "#" },
+    { name: "About", url: "#" },
+    { name: "Integration", url: "#" },
+    { name: "Contact", url: "#" },
+  ],
+  documentation: [
+    { name: "Blogs", url: "#" },
+    { name: "Changelog", url: "#" },
+    { name: "Privacy policy", url: "#" },
+    { name: "T and C", url: "#" },
+  ],
+  otherPages: [
+    { name: "Coming Soon...", url: "#" },
+    { name: "404", url: "#" },
+  ],
+  socialConnect: [
+    { name: "Linkedin", url: "#" },
+    { name: "Instagram", url: "#" },
+    { name: "X/twitter", url: "#" },
+    { name: "Github", url: "#" },
+  ],
+};
+
+export const Footer = (): JSX.Element => {
+  return (
+    <div className={footerStyles.container}>
+      <div className={footerStyles.relativeWrapper}>
+        {/* Background image */}
+        <div className={footerStyles.backgroundImage} />
+
+        <div className={footerStyles.contentContainer}>
+          <div className={footerStyles.contentRelativeWrapper}>
+            {/* Decorative image */}
+            <div className={footerStyles.decorativeImage}>
+              <img
+                className={footerStyles.decorativeImageContent}
+                alt="Decorative background"
+                src="/div--mask-group-.png"
+              />
+            </div>
+
+            <div className={footerStyles.mainContentWrapper}>
+              {/* Header section */}
+              <div className={footerStyles.headerSection}>
+                <div className={footerStyles.headerContentWrapper}>
+                  <div className={footerStyles.headerTitleWrapper}>
+                    <h1 className={footerStyles.headerTitleWhitespace}>
+                      Grow Globally with
+                    </h1>
+                    <h1 className={footerStyles.headerTitle}>
+                      Our Automations
+                    </h1>
+                  </div>
+
+                  <div className={footerStyles.headerSubtitleWrapper}>
+                    <p className={footerStyles.headerSubtitle}>
+                      Automate Faster, Scale Smarter
+                    </p>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <Button className={footerStyles.ctaButton}>
+                  GET STARTED
+                </Button>
+              </div>
+
+              {/* Footer links section */}
+              <div className={footerStyles.linksSection}>
+                {/* Navigation column */}
+                <div className={footerStyles.linkColumn}>
+                  <h3 className={footerStyles.linkColumnTitle}>
+                    Navigation
+                  </h3>
+                  <div className={footerStyles.linksList}>
+                    {footerLinks.navigation.map((link, index) => (
+                      <div
+                        key={index}
+                        className={footerStyles.linkItem}
+                      >
+                        <a
+                          href={link.url}
+                          className={footerStyles.linkText}
+                        >
+                          {link.name}
+                        </a>
+                        <ExternalLinkIcon className={footerStyles.linkIcon} />
+                        <div className={footerStyles.linkDivider} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Documentation column */}
+                <div className={footerStyles.linkColumn}>
+                  <h3 className={footerStyles.linkColumnTitle}>
+                    Documentation
+                  </h3>
+                  <div className={footerStyles.linksList}>
+                    {footerLinks.documentation.map((link, index) => (
+                      <div
+                        key={index}
+                        className={footerStyles.linkItem}
+                      >
+                        <a
+                          href={link.url}
+                          className={footerStyles.linkText}
+                        >
+                          {link.name}
+                        </a>
+                        <ExternalLinkIcon className={footerStyles.linkIcon} />
+                        <div className={footerStyles.linkDivider} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Other Pages column */}
+                <div className={footerStyles.linkColumn}>
+                  <h3 className={footerStyles.linkColumnTitle}>
+                    Other Pages
+                  </h3>
+                  <div className={footerStyles.linksList}>
+                    {footerLinks.otherPages.map((link, index) => (
+                      <div
+                        key={index}
+                        className={footerStyles.linkItem}
+                      >
+                        <a
+                          href={link.url}
+                          className={footerStyles.linkText}
+                        >
+                          {link.name}
+                        </a>
+                        <ExternalLinkIcon className={footerStyles.linkIcon} />
+                        <div className={footerStyles.linkDivider} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Social Connect column */}
+                <div className={footerStyles.linkColumn}>
+                  <h3 className={footerStyles.linkColumnTitle}>
+                    Social Connect
+                  </h3>
+                  <div className={footerStyles.linksList}>
+                    {footerLinks.socialConnect.map((link, index) => (
+                      <div
+                        key={index}
+                        className={footerStyles.linkItem}
+                      >
+                        <a
+                          href={link.url}
+                          className={footerStyles.linkText}
+                        >
+                          {link.name}
+                        </a>
+                        <ExternalLinkIcon className={footerStyles.linkIcon} />
+                        <div className={footerStyles.linkDivider} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Syntora Info Section */}
+              <div className="my-8 text-center md:text-left">
+                 <h4 className="font-semibold mb-2">Syntora</h4>
+                 <p>[Your Street Address]</p>
+                 <p>Naperville, IL [Your Postal Code]</p>
+                 <p>Phone: [Your Phone Number]</p>
+                 <p className="mt-2 text-sm text-gray-400">
+                   Syntora provides expert managed n8n automation services for businesses in Chicagoland and across the US.
+                 </p>
+              </div>
+
+              {/* Copyright bar */}
+              <Card className={footerStyles.copyrightCard}>
+                <CardContent className={footerStyles.copyrightCardContent}>
+                  <div className={footerStyles.copyrightCardTextWrapper}>
+                    <p className={footerStyles.copyrightText}>
+                      © {new Date().getFullYear()} Syntora. All rights reserved.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

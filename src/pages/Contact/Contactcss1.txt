@@ -1,0 +1,21 @@
+import React from "react";
+
+// This is a CSS module file created as a TypeScript component as requested
+// It contains CSS variables and styles for the Contact Hero component
+
+const Contactcss: React.FC = () => {
+  // This component doesn't render anything visible
+  // It's just a way to organize and import the CSS for the Contacthero component
+  return null;
+};
+
+export default Contactcss;
+
+// CSS variables are already defined in the global tailwind.css file:
+// --style-1: background color (black)
+// --style-11: button background color
+// --style-13-*: button text styling
+// --style-14-*: heading text styling
+// --style-3-*: scattered text styling
+// --style-4: heading text color
+// --style-6: scattered text color

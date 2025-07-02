@@ -1,0 +1,256 @@
+import React from "react";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent } from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
+import { Label } from "../../components/ui/label";
+import { Textarea } from "../../components/ui/textarea";
+import "./contact.css";
+
+export const Contact = (): JSX.Element => {
+  // Contact information data
+  const contactCards = [
+    {
+      title: "Email Us",
+      description: ["Reach out to our team for quick", "assistance."],
+      contact: "info@cawar.com",
+      imageUrl: "/image.png",
+    },
+    {
+      title: "Call Us",
+      description: ["Drop us a message, and we'll get", "back to you soon."],
+      contact: "630-743-9686",
+      imageUrl: "/image-1.png",
+    },
+  ];
+
+  // Form field data for mapping
+  const formFields = [
+    {
+      id: "firstName",
+      label: "First Name",
+      value: "Jane",
+      type: "text",
+      width: "half",
+    },
+    {
+      id: "lastName",
+      label: "Last Name",
+      value: "Smith",
+      type: "text",
+      width: "half",
+    },
+    {
+      id: "email",
+      label: "Email",
+      value: "jane@gmail.com",
+      type: "email",
+      width: "full",
+    },
+    {
+      id: "contactNumber",
+      label: "Contact Number",
+      value: "+1234567890",
+      type: "tel",
+      width: "full",
+    },
+    {
+      id: "automationRequest",
+      label: "Automation Request",
+      value: "Share your Automation",
+      type: "textarea",
+      width: "full",
+    },
+  ];
+
+  return (
+    <div className="contact-container">
+      <div className="contact-left-section">
+        {/* Contact Cards Row */}
+        <div className="contact-cards">
+          {contactCards.map((card, index) => (
+            <Card key={index} className="contact-card">
+              <CardContent className="contact-card-content">
+                {/* Icon */}
+                <div
+                  className="contact-icon"
+                  style={{ backgroundImage: `url(${card.imageUrl})` }}
+                />
+
+                {/* Content */}
+                <div className="contact-info">
+                  {/* Title and Description */}
+                  <div className="contact-title-description">
+                    <h3 className="contact-title">
+                      {card.title}
+                    </h3>
+                    <div className="contact-description">
+                      {card.description.map((line, i) => (
+                        <p key={i} className="contact-text">
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Contact Information */}
+                  <div className="contact-detail">
+                    <p className="contact-detail-text">
+                      {card.contact}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Promotional Card */}
+        <Card className="promo-card">
+          <CardContent className="promo-content">
+            <div className="promo-inner">
+              {/* Header Section */}
+              <div className="promo-header">
+                <h2 className="promo-title">
+                  Unlock Your Growth Infrastructure
+                </h2>
+                <div className="promo-subtitle">
+                  <p className="promo-text">
+                    Access automation insights, priority upgrades, and expert
+                  </p>
+                  <p className="promo-text">
+                    support.
+                  </p>
+                </div>
+              </div>
+
+              {/* Features and CTA Section */}
+              <div className="promo-features-container">
+                <div className="promo-features-wrapper">
+                  {/* Feature List */}
+                  <div className="feature-list">
+                    {[
+                      {
+                        text: "Exclusive Insights",
+                        iconSrc: "/group.png",
+                      },
+                      {
+                        text: "Networking & Collaboration",
+                        iconSrc: "/group-1.png",
+                      },
+                      {
+                        text: "Priority Support & Resources",
+                        iconSrc: "/group-2.png",
+                      },
+                    ].map((feature, index) => (
+                      <div key={index} className="feature-item">
+                        <div className="feature-icon-container">
+                          <img
+                            className="feature-icon"
+                            alt="Feature icon"
+                            src={feature.iconSrc}
+                          />
+                        </div>
+                        <p className="feature-text">
+                          {feature.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA Button */}
+                  <Button className="join-button">
+                    <div className="join-button-inner">
+                      <span className="join-text">
+                        JOIN NOW
+                      </span>
+                    </div>
+                  </Button>
+                </div>
+
+                {/* Decorative Image */}
+                <div
+                  className="promo-image"
+                  style={{ backgroundImage: "url(/image-2.png)" }}
+                />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Contact Form */}
+      <Card className="contact-form-card">
+        <CardContent className="contact-form-content">
+          <div className="form-row">
+            {formFields
+              .filter((field) => field.width === "half")
+              .map((field) => (
+                <div key={field.id} className="form-field-half">
+                  <Label
+                    htmlFor={field.id}
+                    className="form-label"
+                  >
+                    {field.label}
+                  </Label>
+                  <Input
+                    id={field.id}
+                    defaultValue={field.value}
+                    type={field.type}
+                    className="form-input"
+                  />
+                </div>
+              ))}
+          </div>
+
+          {formFields
+            .filter(
+              (field) => field.width === "full" && field.type !== "textarea",
+            )
+            .map((field) => (
+              <div key={field.id} className="form-field-full">
+                <Label
+                  htmlFor={field.id}
+                  className="form-label"
+                >
+                  {field.label}
+                </Label>
+                <Input
+                  id={field.id}
+                  defaultValue={field.value}
+                  type={field.type}
+                  className="form-input"
+                />
+              </div>
+            ))}
+
+          {formFields
+            .filter((field) => field.type === "textarea")
+            .map((field) => (
+              <div key={field.id} className="form-field-full">
+                <Label
+                  htmlFor={field.id}
+                  className="form-label"
+                >
+                  {field.label}
+                </Label>
+                <Textarea
+                  id={field.id}
+                  defaultValue={field.value}
+                  className="form-textarea"
+                />
+              </div>
+            ))}
+
+          <Button
+            type="submit"
+            className="submit-button"
+          >
+            Submit
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default Contact;

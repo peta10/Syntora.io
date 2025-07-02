@@ -1,0 +1,12 @@
+/* Basic CSS Resets */
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif; /* Example base font */
+}
+
+/* Add more global styles below */ 

@@ -1,0 +1,21 @@
+export const navbarStyles = {
+  // Header styles
+  header: "w-full bg-black",
+  container: "container mx-auto px-4",
+  headerContent: "flex items-center justify-between h-[86px]",
+  
+  // Logo styles
+  logo: "w-[151px] h-[42px] [background:url(../../../public/image.png)_50%_50%_/_cover]",
+  
+  // Navigation menu styles
+  navigationMenu: "hidden md:flex",
+  navigationMenuList: "flex items-center gap-7",
+  navigationMenuItem: "relative overflow-hidden",
+  navigationMenuLink: "font-normal text-[#7b7c8c] text-[16.9px] leading-[25.6px] hover:text-white transition-colors",
+  navigationMenuItemUnderline: "absolute w-1.5 h-px bottom-0 left-0 bg-[#cfcfcf33]",
+  
+  // CTA button styles
+  ctaButton: "h-[43px] w-[114px] rounded-[999px] p-0 overflow-hidden",
+  ctaButtonInner: "w-28 h-[41px] rounded-full flex items-center justify-center",
+  ctaButtonText: "font-normal text-[#ffffffde] text-[14.2px] leading-[16.8px]"
+};
