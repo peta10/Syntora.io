@@ -16,6 +16,7 @@ const BASE_URL = 'https://syntora.io';
 
 // Paths to exclude from sitemap
 const EXCLUDED_PATHS = [
+  '*', // Exclude the catch-all route for 404 pages
   '/not-found', 
   '/404', 
   '/chat',  // If you don't want chat page indexed

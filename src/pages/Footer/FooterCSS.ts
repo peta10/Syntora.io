@@ -6,7 +6,7 @@ export const footerStyles = {
   container: "w-full bg-black overflow-hidden",
   relativeWrapper: "relative",
   backgroundImage: "absolute w-full h-[676px] top-0 left-0 [background:url(/Footer/image.png)_50%_50%_/_cover]", // Reverted to just gradient
-  dotsOverlay: "absolute top-0 left-0 w-full h-[338px] bg-[url(/Footer/footerdots.png)] bg-top bg-cover bg-no-repeat opacity-50 z-0", // New style for dots overlay
+  dotsOverlay: "absolute top-0 left-0 w-full h-[338px] bg-[url(/Footer/footer-dots-pattern.webp)] bg-top bg-cover bg-no-repeat opacity-50 z-0", // New style for dots overlay
   contentContainer: "relative max-w-[1200px] mx-auto",
   contentRelativeWrapper: "relative",
 

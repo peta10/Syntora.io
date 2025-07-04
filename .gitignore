@@ -7,14 +7,36 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+.nyc_output
+
+# Production
 dist
 dist-ssr
 *.local
+build
+
+# Vite
+.vite
+.vite-cache
+
+# Vercel
+.vercel
+.now
+.env*.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 .idea
 .DS_Store
 *.suo
@@ -22,12 +44,25 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.history
+*.code-workspace
 
 # Environment variables
 .env
 .env.local
 .env.development
+.env.test
 .env.production
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+debug
+debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Large files and installers
 *.msi
@@ -37,3 +72,36 @@ dist-ssr
 *.tar.gz
 *.iso
 node-v*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Cache directories
+.cache
+.parcel-cache
+.npm
+.eslintcache
+.stylelintcache
+.rollup.cache
+
+# Temporary files
+*.swp
+*.swo
+*~
+._*
+Thumbs.db
+
+# Test coverage
+coverage
+.nyc_output
+.jest-cache
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.notes.md
+TODO.md

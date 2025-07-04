@@ -160,7 +160,7 @@ export const Infra = (): JSX.Element => {
         <div className="relative flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           {/* Dotted Background Image - Reduced opacity */}
           <img 
-            src="/Infra/dottedinfra.png"
+            src="/Infra/infrastructure-dots-background.webp"
             alt="Dotted background pattern"
             className="absolute inset-0 w-full h-full object-cover z-0 opacity-30 pointer-events-none"
           />
@@ -215,7 +215,7 @@ export const Infra = (): JSX.Element => {
             <div className="relative w-[380px] h-[380px] md:w-[420px] md:h-[420px] rounded-full p-1 bg-gradient-to-br from-white/20 via-transparent to-white/20">
               {/* Rotating background glow image - Changed blend mode */}
               <img 
-                src="/Infra/image-1.png" 
+                src="/Infra/spinning-automation-graphic.webp" 
                 alt="Background Glow"
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto h-auto min-w-full min-h-full scale-125 object-cover opacity-100 mix-blend-screen pointer-events-none animate-spin-slow" 
               />

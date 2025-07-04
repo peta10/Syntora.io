@@ -182,7 +182,7 @@ export const Supremacy = (): JSX.Element => {
             {/* Right Side Illustration - Original desktop layout */}
             <div className="relative w-full min-h-[500px] lg:min-h-[635px] flex items-center justify-center order-1 lg:order-2">
               <img
-                src="/Supremacy/image.png"
+                src="/Supremacy/supremacy-dotted-background.webp"
                 alt="Abstract background glow for Syntora process"
                 className="absolute inset-0 w-full h-full object-contain z-0 opacity-70 pointer-events-none"
               />
@@ -192,7 +192,7 @@ export const Supremacy = (): JSX.Element => {
                 role="presentation"
               />
               <img
-                src="/Supremacy/image-9.png"
+                src="/Supremacy/automation-process-diagram.webp"
                 alt="Syntora custom workflow automation process cube illustration"
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[582px] h-[635px] object-contain z-10 pointer-events-none"
               />
@@ -213,7 +213,7 @@ export const Supremacy = (): JSX.Element => {
         {/* Cube Illustration for Mobile - Shown after features */}
         <div className="relative w-full min-h-[400px] flex items-center justify-center lg:hidden">
           <img
-            src="/Supremacy/image.png"
+            src="/Supremacy/supremacy-dotted-background.webp"
             alt="Abstract background glow for Syntora process"
             className="absolute inset-0 w-full h-full object-contain z-0 opacity-70 pointer-events-none"
           />
@@ -223,7 +223,7 @@ export const Supremacy = (): JSX.Element => {
             role="presentation"
           />
           <img
-            src="/Supremacy/image-9.png"
+            src="/Supremacy/automation-process-diagram.webp"
             alt="Syntora custom workflow automation process cube illustration"
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[400px] h-auto object-contain z-10 pointer-events-none"
           />

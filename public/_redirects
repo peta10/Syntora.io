@@ -13,6 +13,9 @@
 /blog/diy-vs-managed-automation           /index.html                200
 /blog/chicago-automation-opportunities    /index.html                200
 
+# Logo redirect
+/logo.png                                 /Navbar/SyntoraLogo.png    200
+
 # Nested routes with wildcard
 /blog/*                                   /index.html                200
 

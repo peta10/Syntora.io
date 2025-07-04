@@ -2,6 +2,8 @@ import { useEffect } from 'react'; // Import useEffect
 import Lenis from '@studio-freight/lenis'; // Import Lenis
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'; // Import useLocation
 import { trackPageView } from './lib/analytics'; // Import our analytics utility
+import { Analytics } from '@vercel/analytics/react'; // Import Vercel Analytics
+import { SpeedInsights } from '@vercel/speed-insights/react'; // Import Vercel Speed Insights
 import { SectionFramer } from './screens/SectionFramer'; // Adjust path if needed
 import TimeAuditPage from './pages/TimeAudit/TimeAudit'; // Adjust path if needed
 import { Contact } from './pages/Contact/Contact'; // Import the Contact component
@@ -185,6 +187,8 @@ function App() {
   return (
     <BrowserRouter>
       <AppContent />
+      <Analytics />
+      <SpeedInsights />
     </BrowserRouter>
   );
 }

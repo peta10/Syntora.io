@@ -158,7 +158,7 @@ export const InfraSection = (): JSX.Element => {
         <div className="relative flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Dotted Background Image - Reduced opacity */}
           <img 
-            src="/Infra/dottedinfra.png"
+            src="/Infra/infrastructure-dots-background.webp"
             alt="Dotted background pattern for Syntora automation infrastructure"
             className="absolute inset-0 w-full h-full object-cover z-0 opacity-30 pointer-events-none"
           />
@@ -205,7 +205,7 @@ export const InfraSection = (): JSX.Element => {
             <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] rounded-full p-1 bg-gradient-to-br from-white/20 via-transparent to-white/20">
               {/* Rotating background glow image */}
               <img 
-                src="/Infra/image-1.png" 
+                src="/Infra/spinning-automation-graphic.webp" 
                 alt="Rotating glow representing Syntora systems integration capabilities"
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto h-auto min-w-full min-h-full scale-125 object-cover opacity-100 mix-blend-screen pointer-events-none animate-spin-slow" 
               />

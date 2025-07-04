@@ -133,7 +133,7 @@ export const SupremacySection = (): JSX.Element => {
         {/* Cube Illustration for Mobile - Only visible on Mobile/Tablet */}
         <div className="lg:hidden relative w-full h-[360px] sm:h-[400px] flex items-center justify-center mb-16">
           <img
-            src="/Supremacy/image.png"
+            src="/Supremacy/supremacy-dotted-background.webp"
             alt="Abstract background glow for Syntora process"
             className="absolute inset-0 w-full h-full object-contain z-0 opacity-70 pointer-events-none"
           />
@@ -147,7 +147,7 @@ export const SupremacySection = (): JSX.Element => {
             role="presentation"
           />
           <img
-            src="/Supremacy/image-9.png"
+            src="/Supremacy/automation-process-diagram.webp"
             alt="Syntora custom workflow automation process cube illustration"
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[280px] sm:max-w-[360px] h-auto object-contain z-10 pointer-events-none"
           />
@@ -250,7 +250,7 @@ export const SupremacySection = (): JSX.Element => {
             <div className="relative w-full min-h-[500px] lg:min-h-[635px] flex items-center justify-center order-1 lg:order-2">
               {/* Background Image behind cubes */}
               <img
-                src="/Supremacy/image.png"
+                src="/Supremacy/supremacy-dotted-background.webp"
                 alt="Abstract background glow for Syntora process"
                 className="absolute inset-0 w-full h-full object-contain z-0 opacity-70 pointer-events-none"
               />
@@ -268,7 +268,7 @@ export const SupremacySection = (): JSX.Element => {
 
               {/* Large Central Cube */}
               <img
-                src="/Supremacy/image-9.png"
+                src="/Supremacy/automation-process-diagram.webp"
                 alt="Syntora custom workflow automation process cube illustration"
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[582px] h-[635px] object-contain z-10 pointer-events-none"
               />
