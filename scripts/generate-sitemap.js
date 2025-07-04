@@ -14,6 +14,24 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Base URL for sitemap
 const BASE_URL = 'https://syntora.io';
 
+// Explicit routes to include (in case regex fails)
+const EXPLICIT_ROUTES = [
+  '/',
+  '/time-audit',
+  '/contact',
+  '/book-a-call',
+  '/pricing',
+  '/features',
+  '/about',
+  '/chicago-naperville-automation-services',
+  '/privacy-policy',
+  '/blog',
+  '/blog/n8n-vs-zapier-make',
+  '/blog/stop-manual-data-entry',
+  '/blog/diy-vs-managed-automation',
+  '/blog/chicago-automation-opportunities'
+];
+
 // Paths to exclude from sitemap
 const EXCLUDED_PATHS = [
   '*', // Exclude the catch-all route for 404 pages
@@ -62,18 +80,26 @@ async function extractRoutesFromApp() {
     const appContent = fs.readFileSync(appPath, 'utf8');
 
     // Regular expression to match route paths in App.tsx
-    const routeRegex = /path=["']([^"']+)["']/g;
-    const routes = [];
+    // This pattern looks for path="..." or path='...' in Route components
+    const routeRegex = /Route[^>]*path=["']([^"']+)["']/g;
+    const routes = new Set(); // Use Set to avoid duplicates
+    
+    // Add explicit routes first
+    EXPLICIT_ROUTES.forEach(route => routes.add(route));
+    
+    // Add routes from App.tsx
     let match;
-
     while ((match = routeRegex.exec(appContent)) !== null) {
-      routes.push(match[1]);
+      if (!match[1].includes('*')) { // Exclude wildcard routes
+        routes.add(match[1]);
+      }
     }
 
-    return routes;
+    return Array.from(routes);
   } catch (error) {
     console.error('Error extracting routes:', error);
-    return [];
+    // Return explicit routes as fallback
+    return EXPLICIT_ROUTES;
   }
 }
 
@@ -127,12 +153,16 @@ function generateSitemapXML(routes) {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   
+  console.log('Processing routes:', routes); // Debug log
+  
   for (const route of routes) {
     if (shouldExcludePath(route)) {
+      console.log(`Skipping excluded route: ${route}`); // Debug log
       continue;
     }
     
     const { priority, changefreq } = getPathInfo(route);
+    console.log(`Adding route: ${route} (priority: ${priority}, changefreq: ${changefreq})`); // Debug log
     
     xml += '  <url>\n';
     xml += `    <loc>${BASE_URL}${route}</loc>\n`;
@@ -143,7 +173,6 @@ function generateSitemapXML(routes) {
   }
   
   xml += '</urlset>';
-  
   return xml;
 }
 
@@ -160,13 +189,31 @@ async function main() {
       process.exit(1);
     }
     
-    console.log(`Found ${routes.length} routes.`);
+    console.log(`Found ${routes.length} routes:`, routes); // Debug log
     
     console.log('Generating sitemap.xml...');
     const sitemap = generateSitemapXML(routes);
     
     const outputPath = path.resolve(__dirname, '../public/sitemap.xml');
-    fs.writeFileSync(outputPath, sitemap);
+    console.log('Writing to:', outputPath); // Debug log
+    console.log('Sitemap content:', sitemap); // Debug log
+    
+    try {
+      fs.writeFileSync(outputPath, sitemap, { encoding: 'utf8', flag: 'w' });
+      console.log('File written successfully');
+    } catch (writeError) {
+      console.error('Error writing file:', writeError);
+      throw writeError;
+    }
+    
+    // Verify the file was written
+    try {
+      const written = fs.readFileSync(outputPath, 'utf8');
+      console.log('Verification - file contents:', written);
+    } catch (readError) {
+      console.error('Error verifying file:', readError);
+      throw readError;
+    }
     
     console.log(`Sitemap generated at ${outputPath}`);
   } catch (error) {
