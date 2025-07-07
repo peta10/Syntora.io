@@ -55,7 +55,6 @@ export const Layout = ({ children, seo }: LayoutProps) => {
     title: "Professional Workflow Automation Services",
     description: "Syntora provides expert workflow automation services in Chicago and Naperville. Transform your business processes with custom automation solutions.",
     keywords: "Chicago automation, business process automation, workflow optimization, Naperville automation services",
-    canonicalUrl: window.location.pathname,
   };
 
   const finalSeo = { ...defaultSeo, ...seo };
@@ -86,9 +85,6 @@ export const Layout = ({ children, seo }: LayoutProps) => {
           <meta name="twitter:title" content="Syntora | Managed Workflow Automation Services" />
           <meta name="twitter:description" content="Streamline your business processes with Syntora's managed workflow automation services." />
           
-          {/* Canonical URL - Override on specific pages */}
-          <link rel="canonical" href="https://syntora.io" />
-          
           {/* Inject LocalBusiness Schema globally */}
           <script type="application/ld+json">
             {JSON.stringify(localBusinessSchema)}
@@ -96,7 +92,7 @@ export const Layout = ({ children, seo }: LayoutProps) => {
         </Helmet>
         
         <Navbar />
-        <main className="flex-1 pt-[60px] md:pt-[70px]"> {/* Add padding-top to account for fixed Navbar height */}
+        <main className="flex-grow">
           {children}
         </main>
         <Footer />

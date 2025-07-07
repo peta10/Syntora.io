@@ -4,7 +4,6 @@ import { AboutHero } from './Abouthero';
 import { Card, CardContent } from "@/components/ui/card"; // Import Card components
 import { motion } from 'framer-motion'; // Import motion
 import { Sparkles, CheckIcon } from 'lucide-react'; // Import icon and check icon for mobile bullets
-import PageSEO from '@/components/PageSEO';
 
 // Helper component for gradient text span
 const GradientSpan: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -34,11 +33,6 @@ const About = () => {
 
   return (
     <Layout seo={seo}>
-      <PageSEO 
-        title="About Syntora | Workflow Automation Experts"
-        description="Learn about our team of workflow automation experts who help businesses streamline operations with n8n, Zapier, and Make integration platforms."
-        canonicalPath="/about"
-      />
       
       <div className="bg-black text-white pt-16 pb-24 md:pt-24 md:pb-32 px-4 md:px-8 flex flex-col items-center">
         <AboutHero />

@@ -29,7 +29,7 @@ export const runSEODiagnostic = (): SEODiagnostic[] => {
     issues.push({
       severity: 'error',
       message: 'No title tag found',
-      fix: 'Add a <title> tag to your document head or use the PageSEO component'
+      fix: 'Add a <title> tag to your document head or use the SEO component'
     });
   } else if (title.textContent?.length === 0) {
     issues.push({
@@ -180,4 +180,4 @@ export const useSEODiagnostic = () => {
   }
 };
 
-export default useSEODiagnostic; 
+export default useSEODiagnostic;

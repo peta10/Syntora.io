@@ -15,20 +15,29 @@ This document outlines the SEO best practices that should be followed when devel
 
 ## Meta Tags
 
-Every page should have unique, descriptive meta tags using the `PageSEO` component:
+Every page should have unique, descriptive meta tags passed to the `Layout` component via the `seo` prop. The `Layout` component uses the `SEO` component internally.
 
+Example for a page component:
 ```tsx
-<PageSEO 
-  title="Page Title | Syntora"
-  description="A unique, compelling description of the page content (150-160 characters)."
-  canonicalPath="/page-path"
-/>
+const MyPage = () => {
+  const seo = {
+    title: "My Page Title | Syntora",
+    description: "A unique, compelling description of the page content (150-160 characters).",
+    canonicalUrl: "/my-page-path"
+  };
+
+  return (
+    <Layout seo={seo}>
+      {/* Page content goes here */}
+    </Layout>
+  );
+};
 ```
 
 Guidelines:
 - **Title Tags**: 50-60 characters, include primary keyword near the beginning
 - **Meta Descriptions**: 150-160 characters, compelling with a call to action
-- **Canonical URLs**: Always include to prevent duplicate content issues
+- **Canonical URLs**: Always include the page's path to prevent duplicate content issues. It must be a relative path starting with `/`.
 
 ## URL Structure
 
@@ -73,78 +82,56 @@ Always use the optimized `Image` component:
 
 Guidelines:
 - **Alt Text**: Descriptive alt text (very important for SEO and accessibility)
-- **Dimensions**: Always specify width and height attributes to prevent layout shifts
-- **File Size**: Compress images before adding to the repository
-- **Format**: Use WebP format when possible, with fallbacks for older browsers
-- **Priority**: Set `priority={true}` for above-the-fold images
+- **Image Size**: Specify `width` and `height` to prevent layout shift
+- **Optimization**: Images should be compressed and served in modern formats (e.g., WebP)
+- **Priority**: Use the `priority` prop for above-the-fold images to load them faster
 
 ## Page Speed
 
-- Use code splitting for larger components
-- Lazy load images and non-critical components
-- Minimize third-party scripts
-- Follow the build optimization settings in `vite.config.ts`
+- Aim for a Load Contentful Paint (LCP) of 2.5 seconds or less
+- Minimize main-thread work and JavaScript execution time
+- Use code splitting to load only necessary code for each page
+- Defer loading of offscreen images and non-critical CSS
 
 ## Mobile Responsiveness
 
-- Ensure all pages are fully responsive
-- Use responsive media queries for different screen sizes
-- Test on multiple devices and screen sizes
-- Use the `viewport` meta tag (already set in Layout component)
+- Ensure the website is fully usable and looks great on all device sizes
+- Use responsive design techniques (e.g., media queries, flexible grids)
+- Test on real devices or using browser developer tools
 
 ## Structured Data
 
-Use Schema.org markup for rich results:
+- Use Schema.org structured data to help search engines understand your content
+- The `SEO` component handles basic structured data (Organization, LocalBusiness)
+- For specific page types (e.g., articles, products), you can pass additional structured data via the `structuredData` prop in the `seo` object.
 
+Example:
 ```tsx
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Article Title",
-  "author": {
-    "@type": "Person",
-    "name": "Author Name"
-  },
-  "datePublished": "2023-05-25",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Syntora",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://syntora.io/assets/logo.png"
-    }
+const seo = {
+  // ... other seo props
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "My Article Title",
+    "author": {
+      "@type": "Person",
+      "name": "John Doe"
+    },
+    "datePublished": "2024-01-01"
   }
 };
-
-<PageSEO 
-  // other props
-  schemaData={articleSchema} 
-/>
 ```
-
-Common schema types to use:
-- LocalBusiness (already in Layout)
-- Article (for blog posts)
-- FAQPage (for FAQ sections)
-- Service (for service pages)
-- BreadcrumbList (for navigation)
 
 ## Testing and Monitoring
 
-- Use the built-in SEO diagnostic tool during development
-- Test site with Google's Mobile-Friendly Test
-- Check structured data with Google's Structured Data Testing Tool
-- Monitor Google Search Console regularly
-- Run periodic Lighthouse audits with `npm run audit`
+- Regularly check Google Search Console for indexing issues and performance reports
+- Use the SEO diagnostic tool in development (check the browser console) to catch common mistakes
+- Periodically run Lighthouse audits to check for performance, accessibility, and SEO best practices
 
----
+## Best Practices Checklist
 
-## Development Workflow
-
-1. For new pages, start with the `PageSEO` component
-2. Ensure proper heading structure (one h1, followed by h2, h3, etc.)
-3. Use the `Image` component for all images with proper alt text
-4. Add appropriate Schema.org structured data
-5. Test with the SEO diagnostic tool in dev mode
-
-For questions or clarifications, refer to this document or contact the team lead. 
+1. For new pages, create an `seo` object with `title`, `description`, and `canonicalUrl`.
+2. Pass the `seo` object to the `Layout` component.
+3. Ensure every page has a single `<h1>` tag.
+4. All images must have descriptive `alt` text.
+5. Test the page on mobile devices. 
