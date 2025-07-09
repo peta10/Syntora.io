@@ -151,7 +151,7 @@ Before launching or deploying a significant update:
 -   [ ] **Functionality Tested:** Core user flows tested across major browsers (Chrome, Firefox, Safari, Edge).
 -   [ ] **Responsive Design Verified:** Layout checked on various screen sizes (desktop, tablet, mobile).
 -   [ ] **Performance Optimized:** Lighthouse score checked, assets optimized.
--   **Accessibility Checked:** Basic a11y tests passed (keyboard navigation, contrast, semantic HTML).
+-   [ ] **Accessibility Checked:** Basic a11y tests passed (keyboard navigation, contrast, semantic HTML).
 -   [ ] **SEO Basics Implemented:** Titles, meta descriptions set.
 -   [ ] **Analytics Integrated & Working:** Tracking codes installed, key events firing.
 -   [ ] **Environment Variables Configured:** Production `.env` variables are set correctly in the deployment environment.
@@ -170,6 +170,96 @@ The application utilizes several key backend services and integrations:
     -   **Database:** Stores chat sessions and message history (e.g., in tables like `gemini_messages`, `chat_sessions`, `chat_messages`).
     -   **Edge Functions:** Hosts serverless functions that interact with the Google Gemini API for generating AI responses.
 -   **Google Gemini AI:** The AI model (specifically Gemini 1.5 Flash) used to power the chatbot's conversational capabilities and generate responses.
+
+## Routing & Navigation
+
+The application uses React Router v6 (`react-router-dom@^6.8.1`) for client-side routing. The routing structure is defined in `src/App.tsx` and includes the following key routes:
+
+### Main Routes
+- `/` - Home page (SectionFramer)
+- `/time-audit` - Time Audit Tool
+- `/contact` - Contact Page
+- `/book-a-call` - Booking Page
+- `/pricing` - Pricing Information
+- `/features` - Features Overview
+- `/about` - About Page
+- `/privacy-policy` - Privacy Policy
+- `/chicago-naperville-automation-services` - Local Services Page
+
+### Blog Routes
+- `/blog` - Blog Index
+- `/blog/n8n-vs-zapier-make` - Article
+- `/blog/stop-manual-data-entry` - Article
+- `/blog/diy-vs-managed-automation` - Article
+- `/blog/chicago-automation-opportunities` - Article
+
+### Special Routes
+- `/chat` - Chat Interface
+- `*` - 404 Not Found Page
+
+### Route Implementation
+All routes are wrapped in a `<Layout>` component that provides consistent navigation, footer, and chat widget functionality across the site. The routing setup includes:
+
+- Client-side navigation using `BrowserRouter`
+- Automatic scroll-to-top on route changes
+- Smooth scrolling for anchor links using Lenis
+- Analytics tracking for page views
+- SEO management through React Helmet
+
+### Deployment & 404 Handling
+The application is deployed on Vercel with the following configuration:
+
+1. **Client-side Routing:** Handled through `vercel.json` rewrites:
+   ```json
+   {
+     "rewrites": [
+       { "source": "/(.*)", "destination": "/index.html" }
+     ]
+   }
+   ```
+   This ensures all routes are properly handled by React Router.
+
+2. **Security Headers:** Comprehensive security headers are configured:
+   - Content Security Policy (CSP)
+   - X-Frame-Options
+   - X-Content-Type-Options
+   - X-XSS-Protection
+   - Referrer-Policy
+   - Permissions-Policy
+
+3. **Caching Strategy:**
+   - Static assets: `max-age=31536000, immutable`
+   - JSON/XML files: `max-age=3600`
+   - Optimized for performance while maintaining security
+
+4. **Build Configuration:**
+   - Uses Vite for production builds
+   - Includes Vercel Analytics and Speed Insights
+   - Optimized chunk splitting and compression
+
+5. **404 Handling:**
+   - Client-side: React Router's catch-all route (`<Route path="*">`) renders the NotFound component
+   - Server-side: Vercel rewrites ensure proper SPA behavior
+
+6. **SEO Considerations:** 
+   - Proper meta tags for each route via React Helmet
+   - Sitemap.xml reflects all valid routes
+   - Robots.txt configuration
+   - Canonical URLs
+   - Clean URLs enabled (no .html extension)
+
+7. **Performance:**
+   - Automatic Brotli/Gzip compression
+   - Edge caching
+   - Automatic HTTPS
+   - Global CDN distribution
+
+### Navigation Components
+The main navigation is implemented in `src/components/layout/Layout.tsx` and includes:
+- Responsive navigation menu
+- Mobile-friendly hamburger menu
+- Consistent header and footer across all pages
+- Floating chat widget integration
 
 ## Live Chat Feature with Gemini AI
 
